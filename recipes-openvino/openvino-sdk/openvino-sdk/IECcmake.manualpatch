@@ -1,0 +1,12 @@
+78c78
+<     find_path(IE_INCLUDE_DIR inference_engine.hpp "${IE_ROOT_DIR}/include" NO_DEFAULT_PATH)
+---
+>     set(IE_INCLUDE_DIR "${IE_ROOT_DIR}/include")
+95,97c95,97
+<         find_library(IE_RELEASE_LIBRARY inference_engine "${IE_LIB_DIR}" NO_DEFAULT_PATH)
+<         find_library(IE_LEGACY_RELEASE_LIBRARY inference_engine_legacy "${IE_LIB_DIR}" NO_DEFAULT_PATH)
+<         find_library(IE_C_API_RELEASE_LIBRARY inference_engine_c_api "${IE_LIB_DIR}" NO_DEFAULT_PATH)
+---
+>         set(IE_RELEASE_LIBRARY "${IE_LIB_DIR}"/libinference_engine.so)
+>         set(IE_LEGACY_RELEASE_LIBRARY "${IE_LIB_DIR}"/libinference_engine_legacy.so)
+>         set(IE_C_API_RELEASE_LIBRARY "${IE_LIB_DIR}"/libinference_engine_c_api.so)

@@ -1,0 +1,25 @@
+From b59ce90487ab9c93115d6212f62c5b3350ea18cf Mon Sep 17 00:00:00 2001
+From: Kevin Eyssartier <kevin.eyssartier@thalesgroup.com>
+Date: Wed, 21 Oct 2020 16:30:44 +0200
+Subject: [PATCH] Correction: remove std::move
+
+---
+ sources/ade/source/execution_engine.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/sources/ade/source/execution_engine.cpp b/sources/ade/source/execution_engine.cpp
+index fbc4b1d..3bc10a1 100644
+--- a/sources/ade/source/execution_engine.cpp
++++ b/sources/ade/source/execution_engine.cpp
+@@ -138,7 +138,7 @@ std::unique_ptr<Executable> ExecutionEngine::createExecutable(const Graph& graph
+         }
+     }
+ 
+-    return std::move(ret);
++    return ret;
+ }
+ 
+ void ExecutionEngine::addExecutableDependency(const std::string& lazyPassName)
+-- 
+2.17.1
+
