@@ -19,7 +19,6 @@ SRCREV = "ac65ea30fd90ec04bcf9a3c326f846d8f86f516d"
 SRC_URI += " \
     git://github.com/openvinotoolkit/openvino;protocol=https \
     file://0001-Correction-remove-std-move.manualpatch   \
-    file://IECcmake.manualpatch   \
 "
 S = "${WORKDIR}/git" 
 I = "${WORKDIR}/install" 
@@ -39,10 +38,6 @@ do_configure_prepend() {
 do_install() {
     cd ${B}
     ninja install 
-
-    # patch cmake
-    cd ${I}
-    patch deployment_tools/inference_engine/share/InferenceEngineConfig.cmake ${WORKDIR}/IECcmake.manualpatch
 
     # install SDK
     install -d ${D}/opt/intel_sdk
